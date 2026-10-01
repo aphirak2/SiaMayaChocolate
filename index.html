@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Siamyama Chocolate — ช็อกโกแลตคราฟต์รสเข้มจากแรงบันดาลใจแบบไทย พร้อม 4 เมนูซิกเนเจอร์" />
+  <title>Siamyama Chocolate | Thai Craft Chocolate</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f6efe7;
+      --cream: #fffaf4;
+      --brown-900: #2a160f;
+      --brown-800: #3b2117;
+      --brown-700: #573221;
+      --brown-600: #75462d;
+      --brown-500: #96613d;
+      --caramel: #c99059;
+      --gold: #d8aa68;
+      --text: #2e241f;
+      --muted: #75675e;
+      --line: rgba(76, 45, 30, 0.12);
+      --shadow: 0 18px 50px rgba(48, 27, 17, 0.13);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans Thai", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    img { width: 100%; display: block; object-fit: cover; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.18);
+      color: #f5dac0;
+      font-size: .84rem;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(42, 22, 15, .88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-family: "Playfair Display", serif;
+      font-size: 1.48rem;
+      font-weight: 700;
+      color: #fff7ef;
+      letter-spacing: .02em;
+    }
+    .brand span { color: var(--caramel); }
+
+    nav { display: flex; gap: 24px; align-items: center; }
+    nav a {
+      color: #f7e9dc;
+      font-size: .95rem;
+      transition: .2s ease;
+    }
+    nav a:hover { color: #fff; }
+
+    .nav-cta {
+      background: var(--caramel);
+      color: #25140f !important;
+      font-weight: 700;
+      padding: 10px 16px;
+      border-radius: 999px;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: grid;
+      place-items: center;
+      color: white;
+      padding-top: 74px;
+      background:
+        linear-gradient(90deg, rgba(35,16,10,.86) 0%, rgba(35,16,10,.68) 46%, rgba(35,16,10,.18) 100%),
+        url('https://images.unsplash.com/photo-1548907040-4baa42d10919?auto=format&fit=crop&w=1800&q=88') center/cover no-repeat;
+    }
+
+    .hero-inner {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 96px 0;
+    }
+
+    .hero-copy { max-width: 690px; }
+    .hero h1 {
+      margin: 18px 0 14px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(3.2rem, 8vw, 6.9rem);
+      line-height: .92;
+      letter-spacing: -.035em;
+    }
+    .hero h1 span { color: #e1af73; }
+    .hero p {
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+      color: #f3dfd0;
+      max-width: 620px;
+      margin: 0 0 30px;
+    }
+
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 12px 19px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: var(--caramel);
+      color: #2b170f;
+      box-shadow: 0 10px 28px rgba(201,144,89,.26);
+    }
+    .btn-secondary {
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.35);
+      background: rgba(255,255,255,.08);
+    }
+
+    section { padding: 92px 0; }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 34px;
+    }
+    .section-head small {
+      color: var(--brown-600);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+    .section-head h2 {
+      margin: 4px 0 0;
+      font-family: "Playfair Display", serif;
+      color: var(--brown-900);
+      font-size: clamp(2.25rem, 4vw, 3.6rem);
+      line-height: 1.05;
+    }
+    .section-head p {
+      margin: 0;
+      max-width: 520px;
+      color: var(--muted);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .menu-card {
+      display: grid;
+      grid-template-columns: 46% 54%;
+      min-height: 320px;
+      overflow: hidden;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .menu-card img { height: 100%; min-height: 320px; }
+    .menu-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 28px;
+    }
+    .menu-tag {
+      color: var(--brown-600);
+      font-weight: 700;
+      font-size: .8rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .menu-card h3 {
+      margin: 8px 0 10px;
+      font-size: 1.38rem;
+      line-height: 1.35;
+      color: var(--brown-900);
+    }
+    .menu-card p { margin: 0 0 18px; color: var(--muted); font-size: .94rem; }
+    .price {
+      margin-top: auto;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      color: var(--brown-800);
+      font-weight: 700;
+    }
+    .price strong {
+      font-family: "Playfair Display", serif;
+      font-size: 2.05rem;
+      line-height: 1;
+    }
+
+    .story {
+      background: var(--brown-900);
+      color: white;
+    }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .story img {
+      border-radius: 30px;
+      height: 520px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.28);
+    }
+    .story h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      line-height: 1.08;
+      margin: 0 0 18px;
+    }
+    .story p { color: #e9d8ca; }
+    .story-highlight {
+      margin-top: 24px;
+      padding: 22px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 20px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .info-card {
+      background: #fffaf4;
+      border-radius: var(--radius);
+      padding: 30px;
+      border: 1px solid var(--line);
+    }
+    .info-card h3 { margin: 0 0 18px; color: var(--brown-900); font-size: 1.4rem; }
+
+    .location-list, .hours-list, .contact-list { display: grid; gap: 12px; }
+    .row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 13px 0;
+      border-bottom: 1px dashed rgba(89, 52, 32, .16);
+    }
+    .row:last-child { border-bottom: 0; }
+    .row span:last-child { text-align: right; color: var(--muted); }
+
+    .contact {
+      padding-top: 0;
+    }
+    .contact-panel {
+      background: linear-gradient(135deg, var(--brown-800), #2b1710 68%);
+      color: white;
+      border-radius: 34px;
+      padding: 54px;
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 40px;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .contact-panel::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: -80px;
+      bottom: -110px;
+      border-radius: 50%;
+      background: rgba(201,144,89,.18);
+    }
+    .contact-panel h2 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.2rem, 4vw, 3.45rem);
+      margin: 0 0 12px;
+    }
+    .contact-panel p { margin: 0; color: #ead8ca; }
+    .channels { display: grid; gap: 11px; z-index: 1; }
+    .channel {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.14);
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 26px 0 38px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+    @media (max-width: 980px) {
+      .menu-grid { grid-template-columns: 1fr; }
+      .story-grid, .info-grid, .contact-panel { grid-template-columns: 1fr; }
+      .story img { height: 430px; }
+      .contact-panel { padding: 38px; }
+    }
+
+    @media (max-width: 720px) {
+      nav a:not(.nav-cta) { display: none; }
+      .container, .hero-inner { width: min(100% - 28px, 1160px); }
+      .hero { min-height: 82vh; }
+      .hero h1 { font-size: clamp(3rem, 15vw, 4.6rem); }
+      section { padding: 70px 0; }
+      .section-head { align-items: flex-start; flex-direction: column; }
+      .menu-card { grid-template-columns: 1fr; }
+      .menu-card img { min-height: 240px; height: 240px; }
+      .menu-copy { padding: 24px; }
+      .contact-panel { padding: 30px 24px; border-radius: 26px; }
+      .row { flex-direction: column; gap: 4px; }
+      .row span:last-child { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand">Siamyama <span>Chocolate</span></a>
+      <nav aria-label="เมนูหลัก">
+        <a href="#menu">เมนู</a>
+        <a href="#branches">สาขา</a>
+        <a href="#hours">เวลาเปิดร้าน</a>
+        <a href="#contact" class="nav-cta">สั่งซื้อ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow">Thai Craft Chocolate • Chiang Mai</div>
+          <h1>Chocolate with a <span>Thai Soul.</span></h1>
+          <p>
+            เปิดประสบการณ์ช็อกโกแลตเข้มข้นในมุมใหม่ ด้วยรสชาติที่หยิบแรงบันดาลใจจากเครื่องเทศ กาแฟ และอาหารไทย
+            มาผสานกับช็อกโกแลตคุณภาพในแบบของ Siamyama Chocolate
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#menu">ดูเมนูซิกเนเจอร์</a>
+            <a class="btn btn-secondary" href="#contact">ช่องทางสั่งซื้อ</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <small>Signature Menu</small>
+            <h2>4 รสชาติที่ต้องลอง</h2>
+          </div>
+          <p>แต่ละเมนูตั้งใจออกแบบให้มีบุคลิกชัดเจน ตั้งแต่เข้มลึก หอมเครื่องเทศ ไปจนถึงรสไทยที่คาดไม่ถึง</p>
+        </div>
+
+        <div class="menu-grid">
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1575377427642-087cf684f29d?auto=format&fit=crop&w=1000&q=85" alt="ช็อกโกแลตเข้มข้น" loading="lazy">
+            <div class="menu-copy">
+              <div class="menu-tag">Classic Signature</div>
+              <h3>ช็อคโกแลตแท้เข้มข้นสูตรซิกเนเจอร์</h3>
+              <p>รสโกโก้เข้มเต็มคำ กลิ่นหอมลึก ปลายรสนุ่มและบาลานซ์ เหมาะสำหรับคนรักดาร์กช็อกโกแลตแบบจริงจัง</p>
+              <div class="price"><strong>195</strong><span>บาท</span></div>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=1000&q=85" alt="ช็อกโกแลตนมและเครื่องเทศ" loading="lazy">
+            <div class="menu-copy">
+              <div class="menu-tag">Spiced & Aromatic</div>
+              <h3>ช็อคโกแลตนมผสมชามาซาลาไซ</h3>
+              <p>ช็อกโกแลตนมเนื้อเนียน ผสานกลิ่นเครื่องเทศมาซาลาไซ หอมอบอุ่น มีมิติ และทิ้งกลิ่นชาหวานละมุน</p>
+              <div class="price"><strong>195</strong><span>บาท</span></div>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=1000&q=85" alt="ช็อกโกแลตและกาแฟ" loading="lazy">
+            <div class="menu-copy">
+              <div class="menu-tag">Coffee Crunch</div>
+              <h3>ช็อคโกแลตนมผสมกาแฟกรุบกรอบ</h3>
+              <p>ช็อกโกแลตนมหอมมัน จับคู่กาแฟคั่วหอมและสัมผัสกรุบกรอบ เพิ่มความสนุกในทุกคำแบบหวานพอดี</p>
+              <div class="price"><strong>195</strong><span>บาท</span></div>
+            </div>
+          </article>
+
+          <article class="menu-card">
+            <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=1000&q=85" alt="ช็อกโกแลตรสชาติไทย" loading="lazy">
+            <div class="menu-copy">
+              <div class="menu-tag">Thai Inspired</div>
+              <h3>ช็อคโกแลตรสแกงกะทิไทย</h3>
+              <p>รสชาติเด่นที่หยิบความหอมของเครื่องแกงและกะทิไทยมาสร้างมิติใหม่ให้ช็อกโกแลต กลมกล่อม แปลกใหม่ และน่าจดจำ</p>
+              <div class="price"><strong>195</strong><span>บาท</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="story">
+      <div class="container story-grid">
+        <img src="https://images.unsplash.com/photo-1481391243133-f96216dcb5d2?auto=format&fit=crop&w=1200&q=88" alt="ช็อกโกแลตคราฟต์" loading="lazy">
+        <div>
+          <div class="eyebrow">Crafted in Chiang Mai</div>
+          <h2>ช็อกโกแลตที่เล่าเรื่องความเป็นไทย ผ่านรสชาติร่วมสมัย</h2>
+          <p>
+            Siamyama Chocolate ตั้งใจทำให้ช็อกโกแลตเป็นมากกว่าของหวาน แต่เป็นประสบการณ์ที่เชื่อมวัตถุดิบ กลิ่น และรสแบบไทย
+            เข้ากับความละเมียดของงานคราฟต์ช็อกโกแลต
+          </p>
+          <div class="story-highlight">เข้มข้น • หอมชัด • มีเอกลักษณ์ • เหมาะเป็นของฝากจากเชียงใหม่หรือของหวานพิเศษสำหรับทุกโอกาส</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="branches">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <small>Visit Us</small>
+            <h2>3 สาขาในเชียงใหม่</h2>
+          </div>
+          <p>เลือกแวะสาขาที่สะดวก แล้วมาลองช็อกโกแลตรสชาติพิเศษของเราได้เลย</p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>📍 สาขา</h3>
+            <div class="location-list">
+              <div class="row"><span>สาขาช้างคลาน</span><span>Chang Khlan</span></div>
+              <div class="row"><span>สาขานิมมาน</span><span>Nimman</span></div>
+              <div class="row"><span>สาขาเมืองเก่าใกล้ประตูท่าแพ</span><span>Old City • Tha Phae Gate</span></div>
+            </div>
+          </div>
+
+          <div class="info-card" id="hours">
+            <h3>🕒 เวลาเปิดบริการ</h3>
+            <div class="hours-list">
+              <div class="row"><span>วันจันทร์–ศุกร์</span><span>10:00–21:00 น.</span></div>
+              <div class="row"><span>วันเสาร์–อาทิตย์</span><span>13:00–23:00 น.</span></div>
+              <div class="row"><span>วันหยุดนักขัตฤกษ์</span><span>โปรดตรวจสอบอีกครั้ง</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <h2>อยากลองรสไหนก่อน?</h2>
+            <p>สั่งซื้อหรือสอบถามเพิ่มเติมได้ผ่าน LINE Official, Grab และ LINE MAN</p>
+          </div>
+          <div class="channels">
+            <a class="channel" href="https://line.me/R/ti/p/%40lannaeats-demo" target="_blank" rel="noopener">LINE Official: @lannaeats-demo</a>
+            <div class="channel">Grab</div>
+            <div class="channel">LINE MAN</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 Siamyama Chocolate</span>
+      <span>Thai craft chocolate • Chiang Mai</span>
+    </div>
+  </footer>
+</body>
+</html>
